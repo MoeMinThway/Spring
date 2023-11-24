@@ -1,0 +1,21 @@
+package com.jdc.demo.aspects;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.context.annotation.Configuration;
+
+@Aspect
+@Configuration
+public class MyConcerns {
+
+	@Pointcut("bean(myService)")
+	void serviceClasses() {
+		
+	}
+	@Before("myServiceBean()")
+	void beforeLog() {
+		System.out.println("Before Execution");
+	}
+
+}
